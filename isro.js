@@ -669,7 +669,7 @@ const permuter = {
     return ` (${normalizedTags.filter((t) => t).join(" / ")}): `;
   },
   getNotes: function (tags) {
-    const baseNotes = $("#itemNotes").val();
+    const baseNotes = $("#itemNotes").val().replace(/\r?\n/g, "\\n");
     const reviewer = $("#reviewer").val();
     const tagsPrefixed = this.tagsToNotesPrefix(tags);
 
@@ -702,7 +702,7 @@ const permuter = {
     return forLineLevel ? `#notes:|tags:${tags}` : `|tags:${tags}`;
   },
   getUnformattedNotes: function () {
-    const baseNotes = $("#itemNotes").val();
+    const baseNotes = $("#itemNotes").val().replace(/\r?\n/g, "\\n");
 
     return baseNotes ? baseNotes : "";
   },
